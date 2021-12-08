@@ -13,8 +13,8 @@ KEY_WORDS = "Many online quizzes at URL below\n "
 KEY_END_WORDS = "\n Sources"
 
 # AWS
-AWS_KEY_ID = os.environ.get("AWS_ID")
-AWS_ACCESS_KEY = os.environ.get("AWS_ACCESS_KEY")
+ID = os.environ.get("AWS_ID")
+KEY = os.environ.get("AWS_ACCESS_KEY")
 
 
 # ---------------------------------- Class ---------------------------------- #
@@ -86,8 +86,8 @@ print(news)  # 留著，可以確認完整性，以確認版本是否有變動
 # Method 2: Online - Use AWS and boto3 to create the audio
 # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/polly.html?highlight=polly#Polly.Client.synthesize_speech
 polly_client = boto3.Session(
-    aws_access_key_id=AWS_KEY_ID,
-    aws_secret_access_key=AWS_ACCESS_KEY,
+    aws_access_key_id=ID,
+    aws_secret_access_key=KEY,
     region_name='us-west-2').client('polly')  # polly為AWS提供的 text-to-speech(TTS)服務
 
 response = polly_client.synthesize_speech(VoiceId='Joanna',
